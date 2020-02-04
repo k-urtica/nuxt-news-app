@@ -1,6 +1,6 @@
 ## 📰 Nuxt.js × News API Application
 
-News app using [News API](*1) built with Nuxt.js and Vuetify.
+News app using [News API][*1] built with Nuxt.js and Vuetify.
 
 ⚡ **This Project is WIP!!** :wink:
 
@@ -24,8 +24,8 @@ $ yarn dev
 
 ## Deploy to zeit now
 
-1. Create an account for [Zeit now](*2)
-1. install [now cli](*3)
+1. Create an account for [Zeit now][*2]
+1. install [now cli][*3]
 
 ```bash
 # login to zeit now
