@@ -19,7 +19,7 @@
           hover
           class="mb-3"
         >
-          <v-container class="pt-2 pb-1">
+          <v-container class="pt-3 pb-0">
             <a :href="news.url" target="_brank" rel="noopener">
               <v-row>
                 <v-col class="text-left py-1 pb-0" cols="9" sm="8">
@@ -49,21 +49,11 @@
               </v-row>
             </a>
 
-            <v-row>
-              <v-col class="py-0 text-left" cols="12">
-                <v-btn
-                  v-for="item in shareButtns"
-                  :key="item.title"
-                  :title="item.title"
-                  @click="shareNews(news.url, news.title, item.type)"
-                  class="mr-3"
-                  icon
-                  small
-                >
-                  <v-icon :color="item.color">{{ item.icon }}</v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
+            <share-buttons
+              :news-title="news.title"
+              :news-url="news.url"
+              align="center"
+            />
           </v-container>
         </v-card>
         <v-btn
@@ -82,42 +72,21 @@
           ニュースをさらに見る
         </v-btn>
       </v-col>
-
-      <v-snackbar v-model="snackbar" :timeout="3000" color="success">
-        ニュースリンクをコピーしました
-        <v-btn @click="snackbar = false" text>閉じる</v-btn>
-      </v-snackbar>
+      <snack-bar message="ニュースリンクをコピーしました" />
     </template>
   </v-row>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import ShareButtons from "~/components/share/ShareButtons.vue";
+const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
 export default {
-  data: () => ({
-    shareButtns: [
-      {
-        type: "twitter",
-        icon: "mdi-twitter",
-        title: "twitterでシェア",
-        color: "#1DA1F2"
-      },
-      {
-        type: "facebook",
-        icon: "mdi-facebook",
-        title: "facebookでシェア",
-        color: "#3B5998"
-      },
-      {
-        type: "link",
-        icon: "mdi-link",
-        title: "リンクをコピーする",
-        color: "#888"
-      }
-    ],
-    snackbar: false
-  }),
+  components: {
+    ShareButtons,
+    SnackBar
+  },
   computed: {
     ...mapState(["topNewsList"])
   },
@@ -156,32 +125,6 @@ export default {
     },
     getFormtedDate(date) {
       return new Date(date).toLocaleString("ja");
-    },
-    shareNews(url, title, type) {
-      if (type === "link") {
-        navigator.clipboard.writeText(url);
-        this.snackbar = true;
-        return;
-      }
-      const twitterUrl = "https://twitter.com/intent/tweet?url={0}&text={1}";
-      const faceBookUrl = "https://facebook.com/sharer/sharer.php?u={0}";
-      let shareSnsUrl = "";
-      if (type === "twitter") {
-        shareSnsUrl = this.formatByArr(twitterUrl, url, title);
-      } else {
-        shareSnsUrl = this.formatByArr(faceBookUrl, url);
-      }
-      window.open(shareSnsUrl, "_blank", "noopener");
-    },
-    formatByArr(msg) {
-      let args = [];
-      for (let i = 1; i < arguments.length; i++) {
-        args[i - 1] = arguments[i];
-      }
-      args = args.map((x) => encodeURI(x));
-      return msg.replace(/\{(\d+)\}/g, function(m, k) {
-        return args[k];
-      });
     }
   }
 };
