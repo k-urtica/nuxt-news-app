@@ -24,14 +24,6 @@ export default {
     },
     isShow: false
   }),
-  // data() {
-  //   return {
-  //     options: {
-  //       duration: 600
-  //     },
-  //     isShow: false
-  //   };
-  // },
   methods: {
     onScroll() {
       if (window.pageYOffset > 100) {
