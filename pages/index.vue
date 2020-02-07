@@ -43,6 +43,7 @@
                   <v-img
                     :src="news.urlToImage === null ? '' : news.urlToImage"
                     :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
+                    style="border-radius: 6px;"
                   />
                 </v-col>
               </v-row>
