@@ -15,16 +15,19 @@
         <news-card :news="news" />
       </v-col>
     </template>
+    <snack-bar message="ニュースリンクをコピーしました" />
   </v-row>
 </template>
 
 <script>
 import { mapState } from "vuex";
 const NewsCard = () => import("~/components/main/NewsCard.vue");
+const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
 export default {
   components: {
-    NewsCard
+    NewsCard,
+    SnackBar
   },
   computed: {
     ...mapState(["headlineNewsList"])

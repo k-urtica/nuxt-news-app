@@ -1,10 +1,12 @@
 export const state = () => ({
-  /** ドロワー */
-  drawer: true,
   /** トップニュース */
   topNewsList: [],
   /** ヘッドラインニュース */
-  headlineNewsList: []
+  headlineNewsList: [],
+  /** ドロワー */
+  drawer: null,
+  /** スナックバー */
+  snackBar: false
 });
 
 export const mutations = {
@@ -16,6 +18,9 @@ export const mutations = {
   },
   setDrawer(state, flag) {
     state.drawer = flag;
+  },
+  setSnackBar(state, flag) {
+    state.snackBar = flag;
   }
 };
 
