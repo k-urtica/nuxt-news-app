@@ -1,23 +1,30 @@
 <template>
   <v-row justify="center">
     <v-col cols="12" align="center">
-      <template v-if="headlineNewsList">
-        <h2 class="news-category mb-1">{{ getNewsCategory() }}</h2>
-        <v-divider />
-
-        <news-list col-num="6" />
-      </template>
+      <h2 class="news-category mb-1">{{ getNewsCategory() }}</h2>
+      <v-divider />
     </v-col>
+
+    <template v-if="headlineNewsList">
+      <v-col
+        v-for="news in headlineNewsList"
+        :key="news.title"
+        cols="12"
+        sm="6"
+      >
+        <news-card :news="news" />
+      </v-col>
+    </template>
   </v-row>
 </template>
 
 <script>
 import { mapState } from "vuex";
-const NewsList = () => import("~/components/main/NewsList.vue");
+const NewsCard = () => import("~/components/main/NewsCard.vue");
 
 export default {
   components: {
-    NewsList
+    NewsCard
   },
   computed: {
     ...mapState(["headlineNewsList"])
