@@ -20,13 +20,23 @@
       <span class="mr-2">{{ news.author }}</span>
       <time>{{ getFormtedDate(news.publishedAt) }}</time>
     </v-card-text>
+
+    <share-buttons
+      :news-title="news.title"
+      :news-url="news.url"
+      align="center"
+    />
   </v-card>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import ShareButtons from "~/components/share/ShareButtons.vue";
 
 export default {
+  components: {
+    ShareButtons
+  },
   props: {
     news: {
       type: Object,
