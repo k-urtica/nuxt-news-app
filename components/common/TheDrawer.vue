@@ -7,43 +7,54 @@
     mobile-break-point="1020"
   >
     <v-list shaped dense class="py-5">
-      <v-list-item-group>
-        <v-list-item
-          v-for="item in drawerItems"
-          :key="item.title"
-          :to="item.link"
-          exact
-          nuxt
-          color="primary"
-        >
-          <v-list-item-icon>
-            <v-icon v-text="item.icon" />
-          </v-list-item-icon>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
+      <v-list-item
+        v-for="item in drawerItems"
+        :key="item.title"
+        :to="item.link"
+        exact
+        nuxt
+        color="primary"
+      >
+        <v-list-item-icon>
+          <v-icon v-text="item.icon" />
+        </v-list-item-icon>
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </v-list-item>
 
-        <v-list-item
-          v-for="item in headlineCategory"
-          :key="item.title"
-          :to="item.link"
-          exact
-          color="primary"
-          class="pl-8"
-        >
-          <v-list-item-icon>
-            <v-icon v-text="item.icon" />
-          </v-list-item-icon>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list-item-group>
+      <v-list-item
+        v-for="item in headlineCategory"
+        :key="item.title"
+        :to="item.link"
+        exact
+        color="primary"
+        class="pl-8"
+      >
+        <v-list-item-icon>
+          <v-icon v-text="item.icon" />
+        </v-list-item-icon>
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </v-list-item>
+
       <v-divider class="my-1" />
 
-      <v-list-item>
-        <v-list-item-icon>
-          <v-icon>mdi-earth</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>世界</v-list-item-title>
-      </v-list-item>
+      <v-list-group value="true" no-action>
+        <template v-slot:activator>
+          <v-list-item-icon>
+            <v-icon>mdi-earth</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>ワールド</v-list-item-title>
+        </template>
+
+        <v-list-item
+          v-for="source in $store.state.newsSouceList"
+          :key="source.id"
+          :to="{ name: 'world-source', params: { source: source.id } }"
+          nuxt
+          exact
+        >
+          <v-list-item-title>{{ source.name }}</v-list-item-title>
+        </v-list-item>
+      </v-list-group>
     </v-list>
 
     <template v-slot:append>

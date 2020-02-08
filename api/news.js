@@ -67,4 +67,19 @@ app.get("/api/news/headline", async (req, res) => {
   }
 });
 
+// ワールドニュース
+app.get("/api/news/world", async (req, res) => {
+  const endpoint = "https://newsapi.org/v2/top-headlines";
+  const params = { params: { pageSize: "30" } };
+  try {
+    if (req.query.sources) {
+      Object.assign(params.params, { sources: req.query.sources });
+    }
+    const response = await newsApi.get(endpoint, params);
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 export default app;
