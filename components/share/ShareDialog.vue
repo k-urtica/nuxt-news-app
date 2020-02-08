@@ -69,7 +69,7 @@ export default {
           shareSnsUrl = this.formatByArr(twitterUrl, shareUrl, pageTitle);
           break;
         case "facebook":
-          shareSnsUrl = this.formatByArr(faceBookUrl, pageTitle);
+          shareSnsUrl = this.formatByArr(faceBookUrl, shareUrl);
           break;
         case "はてブ":
           shareSnsUrl = this.formatByArr(hatebuUrl, shareUrl, pageTitle);
