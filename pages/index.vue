@@ -41,7 +41,7 @@
                 </v-col>
                 <v-col class="px-2" cols="3" sm="4">
                   <v-img
-                    :src="news.urlToImage === null ? '' : news.urlToImage"
+                    :src="getImageUrl(news.urlToImage)"
                     :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
                     style="border-radius: 6px;"
                   />
@@ -125,6 +125,13 @@ export default {
     },
     getFormtedDate(date) {
       return new Date(date).toLocaleString("ja");
+    },
+    getImageUrl(imageUrl) {
+      if (imageUrl !== null && imageUrl.match(/^https?:\/\//)) {
+        return imageUrl;
+      } else {
+        return require("@/assets/img/no-image.png");
+      }
     }
   }
 };

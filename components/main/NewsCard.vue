@@ -11,7 +11,7 @@
       <a :href="news.url" target="_blank" rel="noopener">
         <v-hover v-slot:default="{ hover }">
           <v-img
-            :src="news.urlToImage === null ? '' : news.urlToImage"
+            :src="getImageUrl(news.urlToImage)"
             :height="$vuetify.breakpoint.smAndUp ? 370 : 195"
             :class="{ 'on-hover': hover }"
             class="test-class"
@@ -62,6 +62,13 @@ export default {
   methods: {
     getFormtedDate(date) {
       return new Date(date).toLocaleString("ja");
+    },
+    getImageUrl(imageUrl) {
+      if (imageUrl !== null && imageUrl.match(/^https?:\/\//)) {
+        return imageUrl;
+      } else {
+        return require("@/assets/img/no-image.png");
+      }
     }
   }
 };
