@@ -1,32 +1,41 @@
 <template>
-  <v-card hover outlined>
-    <a :href="news.url" target="_blank" rel="noopener">
-      <v-hover v-slot:default="{ hover }">
-        <v-img
-          :src="news.urlToImage === null ? '' : news.urlToImage"
-          :height="$vuetify.breakpoint.smAndUp ? 370 : 195"
-          :class="{ 'on-hover': hover }"
-          class="test-class"
-        >
-          <v-row align="end" class="fill-height px-3">
-            <v-col class="news-title-section py-2">
-              <h2 class="white--text" align="left">{{ news.title }}</h2>
-            </v-col>
-          </v-row>
-        </v-img>
-      </v-hover>
-    </a>
-    <v-card-text class="caption text-right pt-1 pb-0">
-      <span class="mr-2">{{ news.author }}</span>
-      <time>{{ getFormtedDate(news.publishedAt) }}</time>
-    </v-card-text>
+  <v-lazy
+    v-model="isActive"
+    :options="{
+      threshold: 0.4
+    }"
+    :min-height="$vuetify.breakpoint.smAndUp ? 400 : 200"
+    transition="slide-y-reverse-transition"
+  >
+    <v-card hover outlined>
+      <a :href="news.url" target="_blank" rel="noopener">
+        <v-hover v-slot:default="{ hover }">
+          <v-img
+            :src="news.urlToImage === null ? '' : news.urlToImage"
+            :height="$vuetify.breakpoint.smAndUp ? 370 : 195"
+            :class="{ 'on-hover': hover }"
+            class="test-class"
+          >
+            <v-row align="end" class="fill-height px-3">
+              <v-col class="news-title-section py-2">
+                <h2 class="white--text" align="left">{{ news.title }}</h2>
+              </v-col>
+            </v-row>
+          </v-img>
+        </v-hover>
+      </a>
+      <v-card-text class="caption text-right pt-1 pb-0">
+        <span class="mr-2">{{ news.author }}</span>
+        <time>{{ getFormtedDate(news.publishedAt) }}</time>
+      </v-card-text>
 
-    <share-buttons
-      :news-title="news.title"
-      :news-url="news.url"
-      align="center"
-    />
-  </v-card>
+      <share-buttons
+        :news-title="news.title"
+        :news-url="news.url"
+        align="center"
+      />
+    </v-card>
+  </v-lazy>
 </template>
 
 <script>
@@ -44,6 +53,9 @@ export default {
       required: true
     }
   },
+  data: () => ({
+    isActive: false
+  }),
   computed: {
     ...mapState(["headlineNewsList"])
   },
