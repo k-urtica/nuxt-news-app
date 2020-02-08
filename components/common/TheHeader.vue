@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat dense dark app clipped-left>
+  <v-app-bar flat dense dark app clipped-left hide-on-scroll>
     <v-app-bar-nav-icon @click.stop="drawer" aria-label="drawer" />
 
     <v-col class="py-0" align="center">
