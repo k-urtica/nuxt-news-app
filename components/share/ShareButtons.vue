@@ -1,13 +1,18 @@
 <template>
   <div>
     <template v-for="item in itemList">
-      <v-btn :key="item.type" @click.stop="shareNews(item.type)" icon>
+      <v-btn
+        :key="item.type"
+        @click.stop="shareNews(item.type)"
+        :title="item.title"
+        icon
+      >
         <v-icon :color="item.color" small class="share-btn">
           {{ item.icon }}
         </v-icon>
       </v-btn>
     </template>
-    <v-btn @click.stop="copyNewsUrl()" icon>
+    <v-btn @click.stop="copyNewsUrl()" icon title="ニュースリンクをコピー">
       <v-icon small>mdi-link</v-icon>
     </v-btn>
   </div>
@@ -29,10 +34,25 @@ export default {
   },
   data: () => ({
     itemList: [
-      { type: "twitter", icon: "mdi-twitter", color: "#1da1f2" },
-      { type: "facebook", icon: "mdi-facebook", color: "#3B5998" },
-      { type: "hatebu", icon: "B!", color: "#008fde" },
-      { type: "pocket", icon: "mdi-pocket", color: "#ee4056" }
+      {
+        type: "twitter",
+        icon: "mdi-twitter",
+        color: "#1da1f2",
+        title: "Twitterでシェア"
+      },
+      {
+        type: "facebook",
+        icon: "mdi-facebook",
+        color: "#3B5998",
+        title: "Facebookでシェア"
+      },
+      { type: "hatebu", icon: "B!", color: "#008fde", title: "はてブに追加" },
+      {
+        type: "pocket",
+        icon: "mdi-pocket",
+        color: "#ee4056",
+        title: "Pocketに追加"
+      }
     ]
   }),
   methods: {
