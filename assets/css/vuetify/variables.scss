@@ -3,12 +3,9 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 
-$body-font-family: "-apple-system",
-BlinkMacSystemFont,
-Roboto,
-"Noto Sans JP",
-"Hiragino Kaku Gothic Pro",
-"ヒラギノ角ゴ Pro W3",
-"メイリオ",
-Meiryo,
-sans-serif;
+$material-light: (
+  "background": #fafafa
+);
+$body-font-family: "-apple-system", BlinkMacSystemFont, Roboto, "Noto Sans JP",
+  "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo,
+  sans-serif;
