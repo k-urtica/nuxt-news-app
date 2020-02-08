@@ -1,10 +1,10 @@
 require("dotenv").config();
-const { API_KEY } = process.env;
+const { BASE_URL, API_KEY } = process.env;
 
 const siteTitle = "NUXT×NEWS APP";
 const description =
   "今、日本国内・世界で起きている話題のニュースを新聞や通信社など様々なニュースソースから取得して掲載しています。";
-const baseUrl = "https://nuxt-news-app.now.sh";
+const baseUrl = BASE_URL;
 const baseDir = "/";
 const basePath = baseUrl + baseDir;
 
@@ -111,6 +111,7 @@ export default {
     }
   },
   env: {
+    BASE_URL,
     API_KEY
   }
 };
