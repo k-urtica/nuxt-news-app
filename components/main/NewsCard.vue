@@ -5,7 +5,7 @@
       threshold: 0.4
     }"
     :min-height="$vuetify.breakpoint.smAndUp ? 400 : 200"
-    transition="slide-y-reverse-transition"
+    transition="scale-transition"
   >
     <v-card hover outlined>
       <a :href="news.url" target="_blank" rel="noopener">
