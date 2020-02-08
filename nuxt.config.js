@@ -79,6 +79,10 @@ export default {
       }
     ]
   },
+  router: {
+    trailingSlash: true,
+    middleware: "redirect"
+  },
   loading: {
     color: "#81D4FA"
   },
