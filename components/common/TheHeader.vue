@@ -4,7 +4,7 @@
 
     <v-col class="py-0" align="center">
       <nuxt-link :to="{ name: 'index' }">
-        <h1 class="justify-center">Nuxt News App</h1>
+        <h1 class="justify-center">NUXT×NEWS APP</h1>
       </nuxt-link>
     </v-col>
 
