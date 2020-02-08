@@ -25,6 +25,11 @@ const NewsCard = () => import("~/components/main/NewsCard.vue");
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
 export default {
+  head() {
+    return {
+      title: "ヘッドライン - " + this.getNewsCategory()
+    };
+  },
   components: {
     NewsCard,
     SnackBar

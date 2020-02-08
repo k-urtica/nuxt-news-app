@@ -83,6 +83,11 @@ import ShareButtons from "~/components/share/ShareButtons.vue";
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
 export default {
+  head() {
+    return {
+      titleTemplate: null
+    };
+  },
   components: {
     ShareButtons,
     SnackBar

@@ -29,6 +29,11 @@ export default {
     NewsCard,
     SnackBar
   },
+  head() {
+    return {
+      title: "ワールド - " + this.sourceDetail.name
+    };
+  },
   data: () => ({
     sourceDetail: {}
   }),
