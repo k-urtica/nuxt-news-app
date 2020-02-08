@@ -7,26 +7,11 @@
         <h1 class="justify-center">NUXT×NEWS APP</h1>
       </nuxt-link>
     </v-col>
-
-    <v-tooltip left>
-      <template v-slot:activator="{ on }">
-        <v-switch v-model="darkMode" v-on="on" hide-details inset />
-      </template>
-      <span class="caption">ダークモード (実験的機能)</span>
-    </v-tooltip>
   </v-app-bar>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    darkMode: false
-  }),
-  watch: {
-    darkMode() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    }
-  },
   methods: {
     drawer() {
       this.$store.commit("setDrawer", !this.$store.state.drawer);
