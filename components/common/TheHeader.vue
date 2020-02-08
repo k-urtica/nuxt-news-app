@@ -3,8 +3,8 @@
     <v-app-bar-nav-icon @click.stop="drawer" aria-label="drawer" />
 
     <v-col class="py-0" align="center">
-      <nuxt-link to="/">
-        <h1 class="justify-center">Nuxt × News API</h1>
+      <nuxt-link :to="{ name: 'index' }">
+        <h1 class="justify-center">Nuxt News App</h1>
       </nuxt-link>
     </v-col>
 
