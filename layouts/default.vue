@@ -5,7 +5,7 @@
     <the-drawer />
 
     <v-content>
-      <v-container id="main" class="my-8">
+      <v-container id="main" class="mt-4 mb-10">
         <nuxt />
       </v-container>
     </v-content>
