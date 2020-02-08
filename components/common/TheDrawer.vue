@@ -59,6 +59,14 @@
     </v-list>
 
     <template v-slot:append>
+      <v-row justify="center">
+        <v-tooltip right>
+          <template v-slot:activator="{ on }">
+            <v-switch v-model="darkMode" v-on="on" hide-details inset dense />
+          </template>
+          <span class="caption">ダークモード(実験的機能)</span>
+        </v-tooltip>
+      </v-row>
       <div class="pa-3 text-center">
         <v-divider />
         <v-btn
@@ -73,13 +81,22 @@
         >
           <v-icon>{{ item.icon }}</v-icon>
         </v-btn>
+        <!-- <v-btn icon>
+          <v-icon>mdi-share-variant</v-icon>
+        </v-btn> -->
+        <share-dialog />
       </div>
     </template>
   </v-navigation-drawer>
 </template>
 
 <script>
+const ShareDialog = () => import("~/components/share/ShareDialog.vue");
+
 export default {
+  components: {
+    ShareDialog
+  },
   data: () => ({
     drawerItems: [
       {
@@ -157,7 +174,8 @@ export default {
         link: "https://github.com/kiysi/nuxt-news-app",
         icon: "mdi-github-circle"
       }
-    ]
+    ],
+    darkMode: false
   }),
   computed: {
     drawer: {
@@ -167,6 +185,11 @@ export default {
       set(val) {
         this.$store.commit("setDrawer", val);
       }
+    }
+  },
+  watch: {
+    darkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
     }
   }
 };
