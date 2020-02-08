@@ -26,6 +26,7 @@
         :key="item.title"
         :to="item.link"
         exact
+        nuxt
         color="primary"
         class="pl-8"
       >
@@ -37,7 +38,7 @@
 
       <v-divider class="my-1" />
 
-      <v-list-group value="true" no-action>
+      <v-list-group no-action>
         <template v-slot:activator>
           <v-list-item-icon>
             <v-icon>mdi-earth</v-icon>
