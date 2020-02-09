@@ -77,7 +77,15 @@ export default {
   },
   methods: {
     getFormtedDate(date) {
-      return new Date(date).toLocaleString("ja");
+      const d = new Date(date);
+      const formatted = `${d.getMonth() + 1}/${d.getDate()} ${d
+        .getHours()
+        .toString()
+        .padStart(2, "0")}:${d
+        .getMinutes()
+        .toString()
+        .padStart(2, "0")}`;
+      return formatted;
     },
     getImageUrl(imageUrl) {
       if (imageUrl !== null && imageUrl.match(/^https?:\/\//)) {
