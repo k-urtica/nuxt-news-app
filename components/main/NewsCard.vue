@@ -8,7 +8,7 @@
     transition="scale-transition"
   >
     <v-card hover outlined>
-      <a :href="news.url" target="_blank" rel="noopener">
+      <a :href="getNewsUrl()" target="_blank" rel="noopener">
         <v-hover v-slot:default="{ hover }">
           <v-img
             :src="getImageUrl(news.urlToImage)"
@@ -29,11 +29,26 @@
         <time>{{ getFormtedDate(news.publishedAt) }}</time>
       </v-card-text>
 
-      <share-buttons
-        :news-title="news.title"
-        :news-url="news.url"
-        align="center"
-      />
+      <v-row justify="center">
+        <v-col class="py-0" cols="auto">
+          <template v-if="$route.name === 'world-source'">
+            <v-btn-toggle
+              v-model="btnToggle"
+              color="success"
+              rounded
+              dense
+              borderless
+              class="mr-3"
+            >
+              <v-btn small>
+                <v-icon small class="mr-1">mdi-google-translate</v-icon>
+                <span class="toggle-text">翻訳</span>
+              </v-btn>
+            </v-btn-toggle>
+          </template>
+          <share-buttons :news-title="news.title" :news-url="news.url" />
+        </v-col>
+      </v-row>
     </v-card>
   </v-lazy>
 </template>
@@ -54,7 +69,8 @@ export default {
     }
   },
   data: () => ({
-    isActive: false
+    isActive: false,
+    btnToggle: undefined
   }),
   computed: {
     ...mapState(["headlineNewsList"])
@@ -69,6 +85,14 @@ export default {
       } else {
         return require("@/assets/img/no-image.png");
       }
+    },
+    getNewsUrl() {
+      if (this.btnToggle !== undefined) {
+        const transBaseUrl =
+          "https://translate.google.co.jp/translate?hl=ja&sl=auto&tl=ja&u=";
+        return transBaseUrl + this.news.url;
+      }
+      return this.news.url;
     }
   }
 };
@@ -87,9 +111,11 @@ a {
     }
   }
 }
-
 .on-hover {
   transition: 0.3s;
   opacity: 0.7;
+}
+.toggle-text {
+  font-size: 11px;
 }
 </style>
