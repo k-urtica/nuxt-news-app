@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <span>
     <template v-for="item in itemList">
       <v-btn
         :key="item.type"
@@ -15,7 +15,7 @@
     <v-btn @click.stop="copyNewsUrl()" icon title="ニュースリンクをコピー">
       <v-icon small>mdi-link</v-icon>
     </v-btn>
-  </div>
+  </span>
 </template>
 
 <script>
