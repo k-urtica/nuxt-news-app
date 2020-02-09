@@ -14,7 +14,7 @@ const newsApi = axios.create({
 // 共通ヘッダー
 app.use((req, res, next) => {
   res.set({
-    "Cache-Control": "public, max-age=900, s-maxage=7200",
+    "Cache-Control": "public, max-age=300, s-maxage=7200",
     "Content-Type": "application/json; charset=utf-8",
     "X-XSS-Protection": "1; mode=block",
     "X-Content-Type-Options": "nosniff",
