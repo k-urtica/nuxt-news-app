@@ -1,8 +1,13 @@
-# 📰 Nuxt × News App
+<h1 align="center">📰 Nuxt × News App 📰</h1>
 
-News application using [News API][*1] built with Nuxt.js and Vuetify.
+![nuxt-news-app](https://user-images.githubusercontent.com/46732829/74097888-e1737e00-4b54-11ea-9fad-a0bd6339f403.gif)
 
-⚡ **This Project is WIP!!** :wink:
+News application using [News API][*1] built with Nuxt.js and Vuetify.✨
+
+You can see the latest Japanese news and world news.
+
+## Application URL
+[https://nuxt-news-app.now.sh](https://nuxt-news-app.now.sh)
 
 ## Build Setup
 
