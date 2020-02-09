@@ -60,12 +60,14 @@
 
     <template v-slot:append>
       <v-row justify="center">
-        <v-tooltip right>
-          <template v-slot:activator="{ on }">
-            <v-switch v-model="darkMode" v-on="on" hide-details inset dense />
-          </template>
-          <span class="caption">ダークモード(実験的機能)</span>
-        </v-tooltip>
+        <v-switch
+          v-model="darkMode"
+          color="warning"
+          label="ダークモード"
+          hide-details
+          inset
+          dense
+        />
       </v-row>
       <div class="pa-3 text-center">
         <v-divider />
@@ -81,9 +83,7 @@
         >
           <v-icon>{{ item.icon }}</v-icon>
         </v-btn>
-        <!-- <v-btn icon>
-          <v-icon>mdi-share-variant</v-icon>
-        </v-btn> -->
+
         <share-dialog />
       </div>
     </template>
