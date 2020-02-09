@@ -1,6 +1,6 @@
-## 📰 Nuxt.js × News API Application
+# 📰 Nuxt × News App
 
-News app using [News API][*1] built with Nuxt.js and Vuetify.
+News application using [News API][*1] built with Nuxt.js and Vuetify.
 
 ⚡ **This Project is WIP!!** :wink:
 
@@ -11,6 +11,7 @@ News app using [News API][*1] built with Nuxt.js and Vuetify.
 Create `.env` file and add `API_KEY`. Set the News API Key to the value.
 
 ```bash
+BASE_URL=http://localhost:3000
 API_KEY=<your News API Key>
 ```
 
@@ -38,6 +39,8 @@ $ now secrets add API_KEY <your News API Key>
 # So, When do you deploy？
 $ now
 ```
+
+## powered by NewsAPI.org
 
 [*1]: https://newsapi.org/
 [*2]: https://zeit.co/
