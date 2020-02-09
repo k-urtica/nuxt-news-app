@@ -6,6 +6,12 @@ News application using [News API][*1] built with Nuxt.js and Vuetify.✨
 
 You can see the latest Japanese news and world news.
 
+## 📱 Mobile layout
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/46732829/74101738-6a53df00-4b80-11ea-9d6b-829c8504f26f.png">
+</p>
+
 ## ⭐️ Application URL
 
 [https://nuxt-news-app.now.sh](https://nuxt-news-app.now.sh)
@@ -48,7 +54,7 @@ $ now secrets add ANALYTICS_ID <your Google Analytics ID>
 $ now
 ```
 
-## If you don’t need Google Analytics
+## ⚡ If you don’t need Google Analytics ⚡
 
 Delete devDependencies.
 
