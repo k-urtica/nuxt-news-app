@@ -6,10 +6,11 @@ News application using [News API][*1] built with Nuxt.js and Vuetify.✨
 
 You can see the latest Japanese news and world news.
 
-## Application URL
+## ⭐️ Application URL
+
 [https://nuxt-news-app.now.sh](https://nuxt-news-app.now.sh)
 
-## Build Setup
+## 🔧 Build Setup
 
 ### Environment
 
@@ -18,6 +19,7 @@ Create `.env` file and add `API_KEY`. Set the News API Key to the value.
 ```bash
 BASE_URL=http://localhost:3000
 API_KEY=<your News API Key>
+ANALYTICS_ID=<your Google Analytics ID>
 ```
 
 ### Run locally
@@ -28,7 +30,7 @@ $ yarn install
 $ yarn dev
 ```
 
-## Deploy to zeit now
+## 🌐 Deploy to zeit now
 
 1. Create an account for [Zeit now][*2]
 1. install [now cli][*3]
@@ -40,10 +42,32 @@ $ now login
 # Add Secrets for building with now and for functions
 $ now secrets add BASE_URL <your zeit now domain>
 $ now secrets add API_KEY <your News API Key>
+$ now secrets add ANALYTICS_ID <your Google Analytics ID>
 
 # So, When do you deploy？
 $ now
 ```
+
+## If you don’t need Google Analytics
+
+Delete devDependencies.
+
+```bash
+$ yarn remove @nuxtjs/google-analytics
+```
+
+Delete settings in nuxt.config.
+
+```JavaScript
+buildModules: [
+// delete this config
+//    ["@nuxtjs/google-analytics", { id: process.env.ANALYTICS_ID }]
+  ]
+```
+
+## 📄 License
+
+[MIT](http://opensource.org/licenses/MIT)
 
 ## powered by NewsAPI.org
 
