@@ -166,7 +166,7 @@ export default {
     bottomItems: [
       {
         title: "Twitter",
-        link: "https://twitter.com/intent/follow?screen_name=_kiy_s",
+        link: "https://twitter.com/intent/follow?screen_name=k_urtica",
         icon: "mdi-twitter"
       },
       {

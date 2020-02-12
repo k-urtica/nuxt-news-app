@@ -68,7 +68,7 @@ export default {
       },
       {
         name: "twitter:site",
-        content: "@_kiy_s"
+        content: "@k_urtica"
       }
     ],
     link: [
