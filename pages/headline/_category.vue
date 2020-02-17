@@ -5,26 +5,19 @@
       <v-divider />
     </v-col>
 
-    <template v-if="headlineNewsList">
-      <v-col
-        v-for="news in headlineNewsList"
-        :key="news.title"
-        cols="12"
-        sm="6"
-      >
-        <news-card
-          :news="news"
-          data-aos="zoom-in-up"
-          data-aos-anchor-placement="center-bottom"
-        />
-      </v-col>
-    </template>
+    <v-col v-for="news in newsList" :key="news.title" cols="12" sm="6">
+      <news-card
+        :news="news"
+        data-aos="zoom-in-up"
+        data-aos-anchor-placement="top-bottom"
+      />
+    </v-col>
+
     <snack-bar message="ニュースリンクをコピーしました" />
   </v-row>
 </template>
 
 <script>
-import { mapState } from "vuex";
 const NewsCard = () => import("~/components/main/NewsCard.vue");
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
@@ -38,11 +31,11 @@ export default {
     NewsCard,
     SnackBar
   },
-  computed: {
-    ...mapState(["headlineNewsList"])
-  },
-  async fetch({ store, params }) {
+  async asyncData({ store, params }) {
     await store.dispatch("fetchHeadlineNews", { params });
+    return {
+      newsList: store.state.headlineNewsList
+    };
   },
   methods: {
     getNewsCategory() {

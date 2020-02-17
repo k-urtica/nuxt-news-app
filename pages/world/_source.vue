@@ -12,22 +12,20 @@
       <v-divider />
     </v-col>
 
-    <template v-if="worldNewsList">
-      <v-col v-for="news in worldNewsList" :key="news.title" cols="12" sm="6">
-        <news-card
-          :news="news"
-          data-aos="zoom-in-up"
-          data-aos-delay="200"
-          data-aos-anchor-placement="center-bottom"
-        />
-      </v-col>
-    </template>
+    <v-col v-for="news in newsList" :key="news.title" cols="12" sm="6">
+      <news-card
+        :news="news"
+        data-aos="zoom-in-up"
+        data-aos-anchor-placement="center-bottom"
+      />
+    </v-col>
+
     <snack-bar message="ニュースリンクをコピーしました" />
   </v-row>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 const NewsCard = () => import("~/components/main/NewsCard.vue");
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
@@ -45,11 +43,13 @@ export default {
     sourceDetail: {}
   }),
   computed: {
-    ...mapState(["worldNewsList"]),
     ...mapGetters(["getSouceDetail"])
   },
-  async fetch({ store, params }) {
+  async asyncData({ store, params }) {
     await store.dispatch("fetchWorldNews", { params });
+    return {
+      newsList: store.state.worldNewsList
+    };
   },
   created() {
     this.sourceDetail = this.getSouceDetail(this.$route.params.source);
