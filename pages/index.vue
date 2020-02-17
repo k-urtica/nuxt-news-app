@@ -18,11 +18,13 @@
           outlined
           hover
           class="mb-3"
+          data-aos="fade-left"
+          data-aos-duration="800"
         >
           <v-container class="pt-3 pb-0">
             <a :href="news.url" target="_brank" rel="noopener">
               <v-row>
-                <v-col class="text-left py-1 pb-0" cols="8" sm="8">
+                <v-col class="text-left py-1 pb-0" cols="8">
                   <h3 class="news-title mb-2">{{ news.title }}</h3>
                   <p class="news-author mb-0 text-right">
                     <span class="mr-2">{{ news.author }}</span>
@@ -39,7 +41,7 @@
                     </v-card-text>
                   </template>
                 </v-col>
-                <v-col class="px-2" cols="4" sm="4">
+                <v-col class="px-2" cols="4">
                   <v-img
                     :src="getImageUrl(news.urlToImage)"
                     :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
