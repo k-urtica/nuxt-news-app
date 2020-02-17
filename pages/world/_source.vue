@@ -1,12 +1,14 @@
 <template>
   <v-row justify="center">
     <v-col cols="12" align="center">
-      <h2 class="news-category mb-1">
-        <a :href="sourceDetail.url" target="_blank" rel="noopener">
-          {{ sourceDetail.name }}
-        </a>
-      </h2>
-      <p class="caption">{{ sourceDetail.description }}</p>
+      <div data-aos="fade-down" data-aos-duration="1200">
+        <h2 class="news-category mb-1">
+          <a :href="sourceDetail.url" target="_blank" rel="noopener">
+            {{ sourceDetail.name }}
+          </a>
+        </h2>
+        <p class="caption">{{ sourceDetail.description }}</p>
+      </div>
       <v-divider />
     </v-col>
 
