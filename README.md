@@ -71,9 +71,17 @@ buildModules: [
   ]
 ```
 
+## Author
+
+👀 **K**
+
+- Twitter: [@k_urtica](https://twitter.com/k_urtica)
+- Github: [@k-urtica](https://github.com/k-urtica)
+
 ## 📄 License
 
-[MIT](http://opensource.org/licenses/MIT)
+Copyright © 2020 [K](https://github.com/k-urtica).<br />
+This project is [MIT](http://opensource.org/licenses/MIT) licensed.
 
 ## powered by NewsAPI.org
 
