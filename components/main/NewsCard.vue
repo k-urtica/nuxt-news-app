@@ -1,56 +1,47 @@
 <template>
-  <v-lazy
-    v-model="isActive"
-    :options="{
-      threshold: 0.4
-    }"
-    :min-height="$vuetify.breakpoint.smAndUp ? 400 : 200"
-    transition="scale-transition"
-  >
-    <v-card hover outlined>
-      <a :href="getNewsUrl()" target="_blank" rel="noopener">
-        <v-hover v-slot:default="{ hover }">
-          <v-img
-            :src="getImageUrl(news.urlToImage)"
-            :height="$vuetify.breakpoint.smAndUp ? 370 : 195"
-            :class="{ 'on-hover': hover }"
-            class="test-class"
-          >
-            <v-row align="end" class="fill-height px-3">
-              <v-col class="news-title-section py-2">
-                <h2 class="white--text" align="left">{{ news.title }}</h2>
-              </v-col>
-            </v-row>
-          </v-img>
-        </v-hover>
-      </a>
-      <v-card-text class="caption text-right pt-1 pb-0">
-        <span class="mr-2">{{ news.author }}</span>
-        <time>{{ getFormtedDate(news.publishedAt) }}</time>
-      </v-card-text>
+  <v-card hover outlined>
+    <a :href="getNewsUrl()" target="_blank" rel="noopener">
+      <v-hover v-slot:default="{ hover }">
+        <v-img
+          :src="getImageUrl(news.urlToImage)"
+          :height="$vuetify.breakpoint.smAndUp ? 370 : 195"
+          :class="{ 'on-hover': hover }"
+          class="test-class"
+        >
+          <v-row align="end" class="fill-height px-3">
+            <v-col class="news-title-section py-2">
+              <h2 class="white--text" align="left">{{ news.title }}</h2>
+            </v-col>
+          </v-row>
+        </v-img>
+      </v-hover>
+    </a>
+    <v-card-text class="caption text-right pt-1 pb-0">
+      <span class="mr-2">{{ news.author }}</span>
+      <time>{{ getFormtedDate(news.publishedAt) }}</time>
+    </v-card-text>
 
-      <v-row justify="center">
-        <v-col class="py-0" cols="auto">
-          <template v-if="$route.name === 'world-source'">
-            <v-btn-toggle
-              v-model="btnToggle"
-              color="success"
-              rounded
-              dense
-              borderless
-              class="mr-3"
-            >
-              <v-btn small>
-                <v-icon small class="mr-1">mdi-google-translate</v-icon>
-                <span class="toggle-text">翻訳</span>
-              </v-btn>
-            </v-btn-toggle>
-          </template>
-          <share-buttons :news-title="news.title" :news-url="news.url" />
-        </v-col>
-      </v-row>
-    </v-card>
-  </v-lazy>
+    <v-row justify="center">
+      <v-col class="py-0" cols="auto">
+        <template v-if="$route.name === 'world-source'">
+          <v-btn-toggle
+            v-model="btnToggle"
+            color="success"
+            rounded
+            dense
+            borderless
+            class="mr-3"
+          >
+            <v-btn small>
+              <v-icon small class="mr-1">mdi-google-translate</v-icon>
+              <span class="toggle-text">翻訳</span>
+            </v-btn>
+          </v-btn-toggle>
+        </template>
+        <share-buttons :news-title="news.title" :news-url="news.url" />
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
