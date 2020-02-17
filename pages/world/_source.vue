@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-col cols="12" align="center">
-      <div data-aos="fade-down" data-aos-duration="1200">
+      <div data-aos="zoom-in" data-aos-duration="1000">
         <h2 class="news-category mb-1">
           <a :href="sourceDetail.url" target="_blank" rel="noopener">
             {{ sourceDetail.name }}
@@ -17,6 +17,7 @@
         <news-card
           :news="news"
           data-aos="zoom-in-up"
+          data-aos-delay="200"
           data-aos-anchor-placement="center-bottom"
         />
       </v-col>
