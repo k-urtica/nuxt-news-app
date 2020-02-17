@@ -22,7 +22,7 @@
           <v-container class="pt-3 pb-0">
             <a :href="news.url" target="_brank" rel="noopener">
               <v-row>
-                <v-col class="text-left py-1 pb-0" cols="9" sm="8">
+                <v-col class="text-left py-1 pb-0" cols="8" sm="8">
                   <h3 class="news-title mb-2">{{ news.title }}</h3>
                   <p class="news-author mb-0 text-right">
                     <span class="mr-2">{{ news.author }}</span>
@@ -39,7 +39,7 @@
                     </v-card-text>
                   </template>
                 </v-col>
-                <v-col class="px-2" cols="3" sm="4">
+                <v-col class="px-2" cols="4" sm="4">
                   <v-img
                     :src="getImageUrl(news.urlToImage)"
                     :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
@@ -63,10 +63,11 @@
           }"
           nuxt
           small
-          text
-          color="primary"
+          color="blue darken-2"
+          rounded
           outlined
           min-width="50%"
+          class="my-3"
         >
           {{ getNewsCategory(newsItems.category) }}
           ニュースをさらに見る

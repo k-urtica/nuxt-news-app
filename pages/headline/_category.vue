@@ -12,7 +12,11 @@
         cols="12"
         sm="6"
       >
-        <news-card :news="news" />
+        <news-card
+          :news="news"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="center-bottom"
+        />
       </v-col>
     </template>
     <snack-bar message="ニュースリンクをコピーしました" />
