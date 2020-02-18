@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 const NewsCard = () => import("~/components/main/NewsCard.vue");
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
@@ -42,9 +41,6 @@ export default {
   data: () => ({
     sourceDetail: {}
   }),
-  computed: {
-    ...mapGetters(["getSouceDetail"])
-  },
   async asyncData({ $axios, params, error }) {
     try {
       const res = await $axios.$get("/api/news/world", {
@@ -58,7 +54,9 @@ export default {
     }
   },
   created() {
-    this.sourceDetail = this.getSouceDetail(this.$route.params.source);
+    this.sourceDetail = this.$store.getters.getSouceDetail(
+      this.$route.params.source
+    );
   }
 };
 </script>
