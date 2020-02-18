@@ -87,7 +87,11 @@ export default {
     color: "#81D4FA"
   },
   css: [],
-  plugins: ["@/plugins/axios", { src: "~/plugins/aos", mode: "client" }],
+  plugins: [
+    "@/plugins/axios",
+    { src: "~/plugins/aos", mode: "client" },
+    "~/plugins/dayjs.js"
+  ],
   buildModules: [
     "@nuxtjs/eslint-module",
     "@nuxtjs/vuetify",

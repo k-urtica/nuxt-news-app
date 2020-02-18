@@ -49,15 +49,7 @@ export default {
   },
   methods: {
     getFormtedDate(date) {
-      const d = new Date(date);
-      const formatted = `${d.getMonth() + 1}/${d.getDate()} ${d
-        .getHours()
-        .toString()
-        .padStart(2, "0")}:${d
-        .getMinutes()
-        .toString()
-        .padStart(2, "0")}`;
-      return formatted;
+      return this.$dayjs(date).format("M/DD HH:mm");
     },
     getImageUrl(imageUrl) {
       if (imageUrl !== null && imageUrl.match(/^https?:\/\//)) {
