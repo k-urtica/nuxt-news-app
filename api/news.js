@@ -71,6 +71,8 @@ app.get("/api/news/headline", async (req, res, next) => {
 
 // ワールドニュース
 app.get("/api/news/world", async (req, res, next) => {
+  res.set({ "Cache-Control": "public, max-age=300, s-maxage=18000" });
+
   const endpoint = "https://newsapi.org/v2/top-headlines";
   const params = { params: { pageSize: "30" } };
   try {
