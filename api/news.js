@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 // トップニュース
-app.get("/api/news", async (req, res) => {
+app.get("/api/news", async (req, res, next) => {
   const endpoint = "https://newsapi.org/v2/top-headlines";
   const categorys = [
     "general",
@@ -35,7 +35,6 @@ app.get("/api/news", async (req, res) => {
     "science",
     "health"
   ];
-
   const response = [];
   try {
     const resNews = await Promise.all(
@@ -44,18 +43,18 @@ app.get("/api/news", async (req, res) => {
         return newsApi.get(endpoint, params);
       })
     );
-
     categorys.map((category, index) => {
       response.push({ category, newsList: resNews[index].data.articles });
     });
     res.json(response);
   } catch (error) {
-    console.error(error);
+    error.statusCode = error.response.status;
+    next(error);
   }
 });
 
 // ヘッドラインニュース
-app.get("/api/news/headline", async (req, res) => {
+app.get("/api/news/headline", async (req, res, next) => {
   const endpoint = "https://newsapi.org/v2/top-headlines";
   const params = { params: { country: "jp", pageSize: "30" } };
   try {
@@ -65,12 +64,13 @@ app.get("/api/news/headline", async (req, res) => {
     const response = await newsApi.get(endpoint, params);
     res.json(response.data);
   } catch (error) {
-    console.error(error);
+    error.statusCode = error.response.status;
+    next(error);
   }
 });
 
 // ワールドニュース
-app.get("/api/news/world", async (req, res) => {
+app.get("/api/news/world", async (req, res, next) => {
   const endpoint = "https://newsapi.org/v2/top-headlines";
   const params = { params: { pageSize: "30" } };
   try {
@@ -80,8 +80,15 @@ app.get("/api/news/world", async (req, res) => {
     const response = await newsApi.get(endpoint, params);
     res.json(response.data);
   } catch (error) {
-    console.error(error);
+    error.statusCode = error.response.status;
+    next(error);
   }
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  const msg = err.statusCode === 429 ? "Request limited" : err.message;
+  res.status(err.statusCode).send({ message: msg });
 });
 
 export default app;
