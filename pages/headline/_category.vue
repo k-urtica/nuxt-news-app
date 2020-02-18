@@ -31,11 +31,17 @@ export default {
     NewsCard,
     SnackBar
   },
-  async asyncData({ store, params }) {
-    await store.dispatch("fetchHeadlineNews", { params });
-    return {
-      newsList: store.state.headlineNewsList
-    };
+  async asyncData({ $axios, params, error }) {
+    try {
+      const res = await $axios.$get("/api/news/headline", {
+        params: { category: params.category }
+      });
+      return {
+        newsList: res.articles
+      };
+    } catch (e) {
+      error({ statusCode: 404, message: "something error!!" });
+    }
   },
   methods: {
     getNewsCategory() {

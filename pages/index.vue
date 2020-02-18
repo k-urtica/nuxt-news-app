@@ -12,52 +12,52 @@
         </h2>
         <v-divider class="mb-3" />
 
-        <v-card
-          v-for="news in newsItems.newsList"
-          :key="news.title"
-          outlined
-          hover
-          class="mb-3"
-          data-aos="fade-left"
-          data-aos-duration="800"
-        >
-          <v-container class="pt-3 pb-0">
-            <a :href="news.url" target="_brank" rel="noopener">
-              <v-row>
-                <v-col class="text-left py-1 pb-0" cols="8">
-                  <h3 class="news-title mb-2">{{ news.title }}</h3>
-                  <p class="news-author mb-0 text-right">
-                    <span class="mr-2">{{ news.author }}</span>
-                    <time>{{ getFormtedDate(news.publishedAt) }}</time>
-                  </p>
+        <div data-aos="fade-left" data-aos-duration="800">
+          <v-card
+            v-for="news in newsItems.newsList"
+            :key="news.title"
+            outlined
+            hover
+            class="mb-3"
+          >
+            <v-container class="pt-3 pb-0">
+              <a :href="news.url" target="_brank" rel="noopener">
+                <v-row>
+                  <v-col class="text-left py-1 pb-0" cols="8">
+                    <h3 class="news-title mb-2">{{ news.title }}</h3>
+                    <p class="news-author mb-0 text-right">
+                      <span class="mr-2">{{ news.author }}</span>
+                      <time>{{ getFormtedDate(news.publishedAt) }}</time>
+                    </p>
 
-                  <template
-                    v-if="
-                      $vuetify.breakpoint.smAndUp && news.description !== null
-                    "
-                  >
-                    <v-card-text class="news-text pl-1 py-2">
-                      {{ getNewsText(news.description) }}
-                    </v-card-text>
-                  </template>
-                </v-col>
-                <v-col class="px-2" cols="4">
-                  <v-img
-                    :src="getImageUrl(news.urlToImage)"
-                    :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
-                    style="border-radius: 6px;"
-                  />
-                </v-col>
-              </v-row>
-            </a>
+                    <template
+                      v-if="
+                        $vuetify.breakpoint.smAndUp && news.description !== null
+                      "
+                    >
+                      <v-card-text class="news-text pl-1 py-2">
+                        {{ getNewsText(news.description) }}
+                      </v-card-text>
+                    </template>
+                  </v-col>
+                  <v-col class="px-2" cols="4">
+                    <v-img
+                      :src="getImageUrl(news.urlToImage)"
+                      :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
+                      style="border-radius: 6px;"
+                    />
+                  </v-col>
+                </v-row>
+              </a>
 
-            <share-buttons
-              :news-title="news.title"
-              :news-url="news.url"
-              align="center"
-            />
-          </v-container>
-        </v-card>
+              <share-buttons
+                :news-title="news.title"
+                :news-url="news.url"
+                align="center"
+              />
+            </v-container>
+          </v-card>
+        </div>
         <v-btn
           :to="{
             name: 'headline-category',
@@ -81,7 +81,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import ShareButtons from "~/components/share/ShareButtons.vue";
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
@@ -95,12 +94,14 @@ export default {
     ShareButtons,
     SnackBar
   },
-  computed: {
-    ...mapState(["topNewsList"])
-  },
-  async fetch({ store }) {
-    if (store.state.topNewsList.length === 0) {
-      await store.dispatch("fetchTopNews");
+  async asyncData({ $axios, error }) {
+    try {
+      const res = await $axios.$get("/api/news");
+      return {
+        topNewsList: res
+      };
+    } catch (e) {
+      error({ statusCode: 404, message: "something error!!" });
     }
   },
   methods: {

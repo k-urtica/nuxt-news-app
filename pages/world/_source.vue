@@ -45,11 +45,17 @@ export default {
   computed: {
     ...mapGetters(["getSouceDetail"])
   },
-  async asyncData({ store, params }) {
-    await store.dispatch("fetchWorldNews", { params });
-    return {
-      newsList: store.state.worldNewsList
-    };
+  async asyncData({ $axios, params, error }) {
+    try {
+      const res = await $axios.$get("/api/news/world", {
+        params: { sources: params.source }
+      });
+      return {
+        newsList: res.articles
+      };
+    } catch (e) {
+      error({ statusCode: 404, message: "something error!!" });
+    }
   },
   created() {
     this.sourceDetail = this.getSouceDetail(this.$route.params.source);
