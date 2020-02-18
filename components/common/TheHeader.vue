@@ -1,12 +1,11 @@
 <template>
-  <v-app-bar flat dense dark app clipped-left hide-on-scroll>
-    <v-app-bar-nav-icon @click.stop="drawer" aria-label="drawer" />
-
-    <v-col class="py-0" align="center">
+  <v-app-bar class="header-bar" flat dense app clipped-left>
+    <v-app-bar-nav-icon @click.stop="drawer" dark aria-label="drawer" />
+    <v-toolbar-title>
       <nuxt-link :to="{ name: 'index' }">
-        <h1 class="justify-center">NUXT×NEWS APP</h1>
+        <h1>NUXT×NEWS APP</h1>
       </nuxt-link>
-    </v-col>
+    </v-toolbar-title>
   </v-app-bar>
 </template>
 
@@ -21,10 +20,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header-bar {
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
+  background-blend-mode: multiply;
+  opacity: 0.87;
+}
 a {
   text-decoration: none;
 }
 h1 {
+  font-size: 28px;
   color: #ff7c00;
   background: -webkit-linear-gradient(
     top,
