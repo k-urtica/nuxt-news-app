@@ -2,12 +2,17 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h2 v-if="error.statusCode === 404" class="mb-5">
-          ページが見つかりませんでした &#x1f628;
-        </h2>
-        <h2 v-else>
-          何らかのエラーが発生しました... &#x1f631;
-        </h2>
+        <template v-if="error.statusCode === 404">
+          <h2 class="mb-5">
+            ページが見つかりませんでした &#x1f628;
+          </h2>
+        </template>
+        <template v-else>
+          <h2 class="mb-5">
+            何らかのエラーが発生しました... &#x1f631;
+          </h2>
+          <p class="mb-5">{{ error.message }}</p>
+        </template>
         <v-btn
           :to="{ name: 'index' }"
           nuxt

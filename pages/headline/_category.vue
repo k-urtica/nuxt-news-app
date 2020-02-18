@@ -40,7 +40,10 @@ export default {
         newsList: res.articles
       };
     } catch (e) {
-      error({ statusCode: 404, message: "something error!!" });
+      error({
+        statusCode: e.response.status,
+        message: e.response.data.message
+      });
     }
   },
   methods: {
