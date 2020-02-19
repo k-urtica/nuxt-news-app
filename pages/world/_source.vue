@@ -1,27 +1,32 @@
 <template>
-  <v-row justify="center">
-    <v-col cols="12" align="center">
-      <div data-aos="zoom-in" data-aos-duration="1000">
-        <h2 class="news-category mb-1">
-          <a :href="sourceDetail.url" target="_blank" rel="noopener">
-            {{ sourceDetail.name }}
-          </a>
-        </h2>
-        <p class="caption">{{ sourceDetail.description }}</p>
-      </div>
-      <v-divider />
-    </v-col>
+  <div>
+    <div class="text-center" data-aos="zoom-in" data-aos-duration="1000">
+      <h2 class="news-category mb-1">
+        <a :href="sourceDetail.url" target="_blank" rel="noopener">
+          {{ sourceDetail.name }}
+        </a>
+      </h2>
+      <p class="caption">{{ sourceDetail.description }}</p>
+    </div>
+    <v-divider class="mb-2" />
 
-    <v-col v-for="news in newsList" :key="news.title" cols="12" sm="6">
-      <news-card
-        :news="news"
-        data-aos="zoom-in-up"
-        data-aos-anchor-placement="center-bottom"
-      />
-    </v-col>
-
-    <snack-bar message="ニュースリンクをコピーしました" />
-  </v-row>
+    <v-row justify="center">
+      <v-col
+        v-for="news in newsList"
+        :key="news.title"
+        class="mb-2"
+        cols="12"
+        sm="6"
+      >
+        <news-card
+          :news="news"
+          data-aos="zoom-in-up"
+          data-aos-anchor-placement="center-bottom"
+        />
+      </v-col>
+      <snack-bar message="ニュースリンクをコピーしました" />
+    </v-row>
+  </div>
 </template>
 
 <script>
