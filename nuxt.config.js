@@ -98,7 +98,7 @@ export default {
     "@nuxtjs/dotenv",
     ["@nuxtjs/google-analytics", { id: process.env.ANALYTICS_ID }]
   ],
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/pwa"],
   axios: {
     baseURL: process.env.BASE_URL || "http://localhost:3000"
   },
@@ -117,6 +117,27 @@ export default {
           exclude: /(node_modules)/
         });
       }
+    }
+  },
+  pwa: {
+    manifest: {
+      lang: "ja",
+      name: "NUXT×NEWS APP",
+      short_name: "NUXT×NEWS APP",
+      description,
+      background_color: "#f0f0f0",
+      display: "standalone"
+    },
+    icon: {
+      iconSrc: "static/img/icon.png"
+    },
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: "^https://fonts.(?:googleapis|gstatic).com/(.*)",
+          handler: "cacheFirst"
+        }
+      ]
     }
   },
   env: {
