@@ -21,7 +21,7 @@
         <news-card
           :news="news"
           data-aos="zoom-in-up"
-          data-aos-anchor-placement="center-bottom"
+          data-aos-anchor-placement="top-bottom"
         />
       </v-col>
       <snack-bar message="ニュースリンクをコピーしました" />
