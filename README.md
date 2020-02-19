@@ -37,7 +37,6 @@ Create `.env` file and add `API_KEY`. Set the News API Key to the value.
 ```bash
 BASE_URL=http://localhost:3000
 API_KEY=<your News API Key>
-ANALYTICS_ID=<your Google Analytics ID>
 ```
 
 ### Run locally
@@ -60,7 +59,6 @@ $ now login
 # Add Secrets for building with now and for functions
 $ now secrets add BASE_URL <your zeit now domain>
 $ now secrets add API_KEY <your News API Key>
-$ now secrets add ANALYTICS_ID <your Google Analytics ID>
 
 # So, When do you deploy？
 $ now
