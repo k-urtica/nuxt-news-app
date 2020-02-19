@@ -1,6 +1,18 @@
 <h1 align="center">📰 Nuxt × News App 📰</h1>
 
-![nuxt-news-app](https://user-images.githubusercontent.com/46732829/74097888-e1737e00-4b54-11ea-9fad-a0bd6339f403.gif)
+![nuxt-news-app](https://user-images.githubusercontent.com/46732829/74839888-633f8480-5369-11ea-9cb7-4da1f0fe2898.gif)
+<p align="center">
+	<a href="https://gitmoji.carloscuesta.me">
+		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+			 alt="Gitmoji">
+	</a>
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="prettier">
+  </a>
+  <a href="/LICENSE">
+    <img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="MIT LICENCE">
+  </a>
+</p>
 
 News application using [News API][*1] built with Nuxt.js and Vuetify.✨
 
