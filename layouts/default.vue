@@ -11,6 +11,7 @@
     </v-content>
 
     <the-scroll-top-button />
+    <the-footer />
   </v-app>
 </template>
 
@@ -18,12 +19,14 @@
 import TheScrollTopButton from "@/components/common/TheScrollTopButton.vue";
 import TheHeader from "~/components/common/TheHeader.vue";
 import TheDrawer from "~/components/common/TheDrawer.vue";
+import TheFooter from "~/components/common/TheFooter.vue";
 
 export default {
   components: {
     TheHeader,
     TheDrawer,
-    TheScrollTopButton
+    TheScrollTopButton,
+    TheFooter
   }
 };
 </script>
