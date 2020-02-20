@@ -8,7 +8,10 @@
       </v-btn>
     </template>
     <v-card>
-      <v-container>
+      <v-card-title class="title justify-center primary--text">
+        \ NUXT×NEWS APPをシェア /</v-card-title
+      >
+      <v-container class="py-0">
         <v-row>
           <v-col
             v-for="item in shareButtons"
@@ -19,8 +22,9 @@
             <v-btn
               :color="item.color"
               @click.stop="shareSns(item.type)"
+              dark
               block
-              outlined
+              rounded
               class="text-none"
             >
               <v-icon left>{{ item.icon }}</v-icon>
