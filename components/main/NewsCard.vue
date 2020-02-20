@@ -22,7 +22,7 @@
         <span class="mr-2">{{ news.author }}</span>
         <time>{{ getFormtedDate(news.publishedAt) }}</time>
       </v-card-text>
-      <v-card-actions class="justify-center py-1 pb-0">
+      <v-card-actions class="justify-center py-0">
         <share-buttons :news-title="news.title" :news-url="news.url" />
       </v-card-actions>
     </v-card>

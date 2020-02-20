@@ -1,21 +1,21 @@
 <template>
-  <span>
-    <template v-for="item in itemList">
-      <v-btn
-        :key="item.type"
-        @click.stop="shareNews(item.type)"
-        :title="item.title"
-        icon
-      >
-        <v-icon :color="item.color" small class="share-btn">
-          {{ item.icon }}
-        </v-icon>
-      </v-btn>
-    </template>
+  <div>
+    <v-btn
+      v-for="item in itemList"
+      :key="item.type"
+      @click.stop="shareNews(item.type)"
+      :title="item.title"
+      icon
+    >
+      <v-icon :color="item.color" small class="share-btn">
+        {{ item.icon }}
+      </v-icon>
+    </v-btn>
+
     <v-btn @click.stop="copyNewsUrl()" icon title="ニュースリンクをコピー">
       <v-icon small>mdi-link</v-icon>
     </v-btn>
-  </span>
+  </div>
 </template>
 
 <script>
