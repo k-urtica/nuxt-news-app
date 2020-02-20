@@ -60,15 +60,23 @@
 
     <template v-slot:append>
       <v-row justify="center">
-        <v-switch
-          v-model="darkMode"
-          color="warning"
-          label="ダークモード"
-          hide-details
-          inset
-          dense
-        />
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-switch
+              v-model="darkMode"
+              v-on="on"
+              color="warning"
+              class="mx-auto"
+              hide-details
+              inset
+              dense
+              validate-on-blur
+            />
+          </template>
+          <span class="caption">テーマ切り替え</span>
+        </v-tooltip>
       </v-row>
+
       <div class="pa-3 text-center">
         <v-divider />
         <v-btn
