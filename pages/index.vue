@@ -92,18 +92,11 @@ export default {
     ShareButtons,
     SnackBar
   },
-  async asyncData({ $axios, error }) {
-    try {
-      const res = await $axios.$get("/api/news");
-      return {
-        topNewsList: res
-      };
-    } catch (e) {
-      error({
-        statusCode: e.response.status,
-        message: e.response.data.message
-      });
-    }
+  async asyncData({ $axios }) {
+    const res = await $axios.$get("/api/news");
+    return {
+      topNewsList: res
+    };
   },
   methods: {
     getNewsCategory(category) {

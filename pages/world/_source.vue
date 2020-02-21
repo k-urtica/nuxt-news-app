@@ -46,20 +46,13 @@ export default {
   data: () => ({
     sourceDetail: {}
   }),
-  async asyncData({ $axios, params, error }) {
-    try {
-      const res = await $axios.$get("/api/news/world", {
-        params: { sources: params.source }
-      });
-      return {
-        newsList: res.articles
-      };
-    } catch (e) {
-      error({
-        statusCode: e.response.status,
-        message: e.response.data.message
-      });
-    }
+  async asyncData({ $axios, params }) {
+    const res = await $axios.$get("/api/news/world", {
+      params: { sources: params.source }
+    });
+    return {
+      newsList: res.articles
+    };
   },
   created() {
     this.sourceDetail = this.$store.getters.getSouceDetail(

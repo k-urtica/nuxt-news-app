@@ -36,20 +36,13 @@ export default {
     NewsCard,
     SnackBar
   },
-  async asyncData({ $axios, params, error }) {
-    try {
-      const res = await $axios.$get("/api/news/headline", {
-        params: { category: params.category }
-      });
-      return {
-        newsList: res.articles
-      };
-    } catch (e) {
-      error({
-        statusCode: e.response.status,
-        message: e.response.data.message
-      });
-    }
+  async asyncData({ $axios, params }) {
+    const res = await $axios.$get("/api/news/headline", {
+      params: { category: params.category }
+    });
+    return {
+      newsList: res.articles
+    };
   },
   methods: {
     getNewsCategory() {
