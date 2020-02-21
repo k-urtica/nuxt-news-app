@@ -1,6 +1,7 @@
 <h1 align="center">📰 Nuxt × News App 📰</h1>
 
 ![nuxt-news-app](https://user-images.githubusercontent.com/46732829/74839888-633f8480-5369-11ea-9cb7-4da1f0fe2898.gif)
+
 <p align="center">
 	<a href="https://gitmoji.carloscuesta.me">
 		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
@@ -64,21 +65,9 @@ $ now secrets add API_KEY <your News API Key>
 $ now
 ```
 
-## ⚡ If you don’t need Google Analytics ⚡
-
-Delete devDependencies.
-
 ```bash
-$ yarn remove @nuxtjs/google-analytics
-```
-
-Delete settings in nuxt.config.
-
-```JavaScript
-buildModules: [
-// delete this config
-//    ["@nuxtjs/google-analytics", { id: process.env.ANALYTICS_ID }]
-  ]
+# production deploy
+$ now --prod
 ```
 
 ## Author
