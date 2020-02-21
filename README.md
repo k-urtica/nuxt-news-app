@@ -58,7 +58,7 @@ $ yarn dev
 $ now login
 
 # Add Secrets for building with now and for functions
-$ now secrets add BASE_URL <your zeit now domain>
+$ now secrets add BASE_URL https://nuxt-news-app.<your zeit now name>.now.sh
 $ now secrets add API_KEY <your News API Key>
 
 # So, When do you deploy？
