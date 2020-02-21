@@ -8,17 +8,14 @@
   "env": {
     "API_KEY": "@api_key"
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/news.*",
-      "dest": "/api/news.js"
+      "source": "/api/news(.*)",
+      "destination": "/api/news.js"
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/.*",
-      "dest": "index.html"
+      "source": "/(.*)",
+      "destination": "index.html"
     }
   ],
   "headers": [
