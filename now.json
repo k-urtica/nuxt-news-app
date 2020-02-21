@@ -2,8 +2,7 @@
   "version": 2,
   "build": {
     "env": {
-      "BASE_URL": "@base_url",
-      "ANALYTICS_ID": "@analytics_id"
+      "BASE_URL": "@base_url"
     }
   },
   "env": {

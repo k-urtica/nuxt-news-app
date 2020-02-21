@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { BASE_URL, API_KEY, ANALYTICS_ID } = process.env;
+const { BASE_URL, API_KEY } = process.env;
 
 const siteTitle = "NUXT×NEWS APP";
 const description =
@@ -92,12 +92,7 @@ export default {
     { src: "~/plugins/aos", mode: "client" },
     "~/plugins/dayjs.js"
   ],
-  buildModules: [
-    "@nuxtjs/eslint-module",
-    "@nuxtjs/vuetify",
-    "@nuxtjs/dotenv",
-    ["@nuxtjs/google-analytics", { id: process.env.ANALYTICS_ID }]
-  ],
+  buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/dotenv"],
   modules: ["@nuxtjs/axios", "@nuxtjs/pwa"],
   axios: {
     baseURL: process.env.BASE_URL || "http://localhost:3000"
@@ -142,7 +137,6 @@ export default {
   },
   env: {
     BASE_URL,
-    API_KEY,
-    ANALYTICS_ID
+    API_KEY
   }
 };
