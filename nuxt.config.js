@@ -102,7 +102,7 @@ export default {
   },
   serverMiddleware: ["~/api/news.js"],
   build: {
-    //    extractCSS: true,
+    extractCSS: true,
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
