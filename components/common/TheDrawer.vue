@@ -64,13 +64,13 @@
           <template v-slot:activator="{ on }">
             <v-switch
               v-model="darkMode"
-              v-on="on"
               color="warning"
               class="mx-auto"
               hide-details
               inset
               dense
               validate-on-blur
+              v-on="on"
             />
           </template>
           <span class="caption">テーマ切り替え</span>
@@ -103,23 +103,23 @@ const ShareDialog = () => import("~/components/share/ShareDialog.vue");
 
 export default {
   components: {
-    ShareDialog
+    ShareDialog,
   },
   data: () => ({
     drawerItems: [
       {
         title: "トップニュース",
         icon: "mdi-newspaper-variant-multiple-outline",
-        link: { name: "index" }
+        link: { name: "index" },
       },
       {
         title: "ヘッドライン",
         icon: "mdi-fire",
         link: {
           name: "headline-category",
-          params: { category: "general" }
-        }
-      }
+          params: { category: "general" },
+        },
+      },
     ],
     headlineCategory: [
       {
@@ -127,63 +127,63 @@ export default {
         icon: "mdi-laptop-mac",
         link: {
           name: "headline-category",
-          params: { category: "technology" }
-        }
+          params: { category: "technology" },
+        },
       },
       {
         title: "ビジネス",
         icon: "mdi-domain",
         link: {
           name: "headline-category",
-          params: { category: "business" }
-        }
+          params: { category: "business" },
+        },
       },
       {
         title: "エンターテイメント",
         icon: "mdi-filmstrip",
         link: {
           name: "headline-category",
-          params: { category: "entertainment" }
-        }
+          params: { category: "entertainment" },
+        },
       },
       {
         title: "スポーツ",
         icon: "mdi-soccer",
         link: {
           name: "headline-category",
-          params: { category: "sports" }
-        }
+          params: { category: "sports" },
+        },
       },
       {
         title: "サイエンス",
         icon: "mdi-atom",
         link: {
           name: "headline-category",
-          params: { category: "science" }
-        }
+          params: { category: "science" },
+        },
       },
       {
         title: "ヘルス",
         icon: "mdi-heart-circle-outline",
         link: {
           name: "headline-category",
-          params: { category: "health" }
-        }
-      }
+          params: { category: "health" },
+        },
+      },
     ],
     bottomItems: [
       {
         title: "Twitter",
         link: "https://twitter.com/intent/follow?screen_name=k_urtica",
-        icon: "mdi-twitter"
+        icon: "mdi-twitter",
       },
       {
         title: "GitHub Repo",
         link: "https://github.com/kiysi/nuxt-news-app",
-        icon: "mdi-github-circle"
-      }
+        icon: "mdi-github-circle",
+      },
     ],
-    darkMode: false
+    darkMode: false,
   }),
   computed: {
     drawer: {
@@ -192,13 +192,13 @@ export default {
       },
       set(val) {
         this.$store.commit("setDrawer", val);
-      }
-    }
+      },
+    },
   },
   watch: {
     darkMode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    }
-  }
+    },
+  },
 };
 </script>

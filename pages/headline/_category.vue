@@ -27,21 +27,16 @@ const NewsCard = () => import("~/components/main/NewsCard.vue");
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
 export default {
-  head() {
-    return {
-      title: "ヘッドライン - " + this.getNewsCategory()
-    };
-  },
   components: {
     NewsCard,
-    SnackBar
+    SnackBar,
   },
   async asyncData({ $axios, params }) {
     const res = await $axios.$get("/api/news/headline", {
-      params: { category: params.category }
+      params: { category: params.category },
     });
     return {
-      newsList: res.articles
+      newsList: res.articles,
     };
   },
   methods: {
@@ -64,8 +59,13 @@ export default {
         default:
           return this.$route.params.category;
       }
-    }
-  }
+    },
+  },
+  head() {
+    return {
+      title: "ヘッドライン - " + this.getNewsCategory(),
+    };
+  },
 };
 </script>
 

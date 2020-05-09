@@ -59,7 +59,7 @@
         <v-btn
           :to="{
             name: 'headline-category',
-            params: { category: newsItems.category }
+            params: { category: newsItems.category },
           }"
           nuxt
           small
@@ -83,19 +83,14 @@ import ShareButtons from "~/components/share/ShareButtons.vue";
 const SnackBar = () => import("~/components/parts/SnackBar.vue");
 
 export default {
-  head() {
-    return {
-      titleTemplate: null
-    };
-  },
   components: {
     ShareButtons,
-    SnackBar
+    SnackBar,
   },
   async asyncData({ $axios }) {
     const res = await $axios.$get("/api/news");
     return {
-      topNewsList: res
+      topNewsList: res,
     };
   },
   methods: {
@@ -135,8 +130,13 @@ export default {
       } else {
         return require("@/assets/img/no-image.png");
       }
-    }
-  }
+    },
+  },
+  head() {
+    return {
+      titleTemplate: null,
+    };
+  },
 };
 </script>
 

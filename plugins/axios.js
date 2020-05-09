@@ -1,8 +1,8 @@
-export default function({ $axios, error }) {
+export default function ({ $axios, error }) {
   $axios.onError((e) => {
     error({
       statusCode: e.response.status,
-      message: e.response.data.message
+      message: e.response.data.message,
     });
   });
 }

@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="isShareDialog" max-width="480">
     <template v-slot:activator="{ on }">
-      <v-btn v-on="on" icon title="SNSでシェア">
+      <v-btn icon title="SNSでシェア" v-on="on">
         <v-icon>
           mdi-share-variant
         </v-icon>
@@ -21,18 +21,18 @@
           >
             <v-btn
               :color="item.color"
-              @click.stop="shareSns(item.type)"
               dark
               block
               rounded
               class="text-none"
+              @click.stop="shareSns(item.type)"
             >
               <v-icon left>{{ item.icon }}</v-icon>
               {{ item.type }}
             </v-btn>
           </v-col>
           <v-col cols="12" class="py-0">
-            <v-btn @click="isShareDialog = false" text block>閉じる</v-btn>
+            <v-btn text block @click="isShareDialog = false">閉じる</v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -48,8 +48,8 @@ export default {
       { type: "twitter", icon: "mdi-twitter", color: "#1DA1F2" },
       { type: "facebook", icon: "mdi-facebook", color: "#3B5998" },
       { type: "はてブ", icon: "B!", color: "#00A4DE" },
-      { type: "pocket", icon: "mdi-pocket", color: "#ee4056" }
-    ]
+      { type: "pocket", icon: "mdi-pocket", color: "#ee4056" },
+    ],
   }),
   methods: {
     shareSns(type) {
@@ -92,10 +92,10 @@ export default {
         args[i - 1] = arguments[i];
       }
       args = args.map((x) => encodeURI(x));
-      return msg.replace(/\{(\d+)\}/g, function(m, k) {
+      return msg.replace(/\{(\d+)\}/g, function (m, k) {
         return args[k];
       });
-    }
-  }
+    },
+  },
 };
 </script>

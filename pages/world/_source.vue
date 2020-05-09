@@ -36,29 +36,29 @@ const SnackBar = () => import("~/components/parts/SnackBar.vue");
 export default {
   components: {
     NewsCard,
-    SnackBar
+    SnackBar,
   },
-  head() {
+  async asyncData({ $axios, params }) {
+    const res = await $axios.$get("/api/news/world", {
+      params: { sources: params.source },
+    });
     return {
-      title: "ワールド - " + this.sourceDetail.name
+      newsList: res.articles,
     };
   },
   data: () => ({
-    sourceDetail: {}
+    sourceDetail: {},
   }),
-  async asyncData({ $axios, params }) {
-    const res = await $axios.$get("/api/news/world", {
-      params: { sources: params.source }
-    });
-    return {
-      newsList: res.articles
-    };
-  },
   created() {
     this.sourceDetail = this.$store.getters.getSouceDetail(
       this.$route.params.source
     );
-  }
+  },
+  head() {
+    return {
+      title: "ワールド - " + this.sourceDetail.name,
+    };
+  },
 };
 </script>
 

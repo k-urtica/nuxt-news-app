@@ -12,93 +12,93 @@ export default {
   mode: "spa",
   head: {
     htmlAttrs: {
-      lang: "ja"
+      lang: "ja",
     },
     titleTemplate: "%s | " + siteTitle,
     title: siteTitle,
     meta: [
       {
         charset: "utf-8",
-        prefix: "og: http://ogp.me/ns#"
+        prefix: "og: http://ogp.me/ns#",
       },
       {
         name: "viewport",
-        content: "width=device-width, initial-scale=1"
+        content: "width=device-width, initial-scale=1",
       },
       {
         hid: "description",
         name: "description",
-        content: description
+        content: description,
       },
       // OGP
       {
         hid: "og:site_name",
         property: "og:site_name",
-        content: siteTitle
+        content: siteTitle,
       },
       {
         hid: "og:type",
         property: "og:type",
-        content: "website"
+        content: "website",
       },
       {
         hid: "og:url",
         property: "og:url",
-        content: basePath
+        content: basePath,
       },
       {
         hid: "og:title",
         property: "og:title",
-        content: siteTitle
+        content: siteTitle,
       },
       {
         hid: "og:description",
         property: "og:description",
-        content: description
+        content: description,
       },
       {
         hid: "og:image",
         property: "og:image",
-        content: baseUrl + "/img/ogp.png"
+        content: baseUrl + "/img/ogp.png",
       },
       // twitter
       {
         name: "twitter:card",
-        content: "summary_large_image"
+        content: "summary_large_image",
       },
       {
         name: "twitter:site",
-        content: "@k_urtica"
-      }
+        content: "@k_urtica",
+      },
     ],
     link: [
       {
         rel: "icon",
         type: "image/x-icon",
-        href: "/favicon.ico"
-      }
-    ]
+        href: "/favicon.ico",
+      },
+    ],
   },
   router: {
     trailingSlash: true,
-    middleware: "redirect"
+    middleware: "redirect",
   },
   loading: {
-    color: "#81D4FA"
+    color: "#81D4FA",
   },
   css: [],
   plugins: [
     "@/plugins/axios",
     { src: "~/plugins/aos", mode: "client" },
-    "~/plugins/dayjs.js"
+    "~/plugins/dayjs.js",
   ],
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/dotenv"],
   modules: ["@nuxtjs/axios", "@nuxtjs/pwa"],
   axios: {
-    baseURL: process.env.BASE_URL || "http://localhost:3000"
+    baseURL: process.env.BASE_URL || "http://localhost:3000",
   },
   vuetify: {
-    customVariables: ["~/assets/css/vuetify/variables.scss"]
+    customVariables: ["~/assets/css/vuetify/variables.scss"],
   },
   serverMiddleware: ["~/api/news.js"],
   build: {
@@ -109,10 +109,10 @@ export default {
           enforce: "pre",
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         });
       }
-    }
+    },
   },
   pwa: {
     manifest: {
@@ -121,22 +121,22 @@ export default {
       short_name: "NUXT×NEWS APP",
       description,
       background_color: "#f0f0f0",
-      display: "standalone"
+      display: "standalone",
     },
     icon: {
-      iconSrc: "static/img/icon.png"
+      iconSrc: "static/img/icon.png",
     },
     workbox: {
       runtimeCaching: [
         {
           urlPattern: "^https://fonts.(?:googleapis|gstatic).com/(.*)",
-          handler: "cacheFirst"
-        }
-      ]
-    }
+          handler: "cacheFirst",
+        },
+      ],
+    },
   },
   env: {
     BASE_URL,
-    API_KEY
-  }
+    API_KEY,
+  },
 };

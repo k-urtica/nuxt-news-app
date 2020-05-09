@@ -6,7 +6,7 @@ export const state = () => ({
   /** スナックバー */
   snackBar: false,
   /** news source list */
-  newsSouceList: newsSource
+  newsSouceList: newsSource,
 });
 
 export const mutations = {
@@ -15,7 +15,7 @@ export const mutations = {
   },
   setSnackBar(state, flag) {
     state.snackBar = flag;
-  }
+  },
 };
 
 export const getters = {
@@ -28,5 +28,5 @@ export const getters = {
         }
       }
     };
-  }
+  },
 };

@@ -1,6 +1,6 @@
 <template>
   <v-app-bar class="header-bar" flat dense app clipped-left>
-    <v-app-bar-nav-icon @click.stop="drawer" dark aria-label="drawer" />
+    <v-app-bar-nav-icon dark aria-label="drawer" @click.stop="drawer" />
     <v-toolbar-title>
       <nuxt-link :to="{ name: 'index' }">
         <h1>NUXT×NEWS APP</h1>
@@ -14,8 +14,8 @@ export default {
   methods: {
     drawer() {
       this.$store.commit("setDrawer", !this.$store.state.drawer);
-    }
-  }
+    },
+  },
 };
 </script>
 

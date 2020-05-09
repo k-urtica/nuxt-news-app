@@ -38,17 +38,17 @@ import ShareButtons from "~/components/share/ShareButtons.vue";
 
 export default {
   components: {
-    ShareButtons
+    ShareButtons,
   },
   props: {
     news: {
       type: Object,
       default: null,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
-    ...mapState(["headlineNewsList"])
+    ...mapState(["headlineNewsList"]),
   },
   methods: {
     getFormtedDate(date) {
@@ -60,8 +60,8 @@ export default {
       } else {
         return require("@/assets/img/no-image.png");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

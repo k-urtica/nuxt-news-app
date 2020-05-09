@@ -1,7 +1,7 @@
 <template>
   <v-snackbar v-model="snackBar" :timeout="3000" color="success">
     {{ message }}
-    <v-btn @click="snackBar = false" text>閉じる</v-btn>
+    <v-btn text @click="snackBar = false">閉じる</v-btn>
   </v-snackbar>
 </template>
 
@@ -11,8 +11,8 @@ export default {
     message: {
       type: String,
       default: "",
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     snackBar: {
@@ -21,8 +21,8 @@ export default {
       },
       set(val) {
         this.$store.commit("setSnackBar", val);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

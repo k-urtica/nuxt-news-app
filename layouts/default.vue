@@ -26,8 +26,8 @@ export default {
     TheHeader,
     TheDrawer,
     TheScrollTopButton,
-    TheFooter
-  }
+    TheFooter,
+  },
 };
 </script>
 

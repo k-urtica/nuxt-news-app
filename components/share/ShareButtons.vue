@@ -3,16 +3,16 @@
     <v-btn
       v-for="item in itemList"
       :key="item.type"
-      @click.stop="shareNews(item.type)"
       :title="item.title"
       icon
+      @click.stop="shareNews(item.type)"
     >
       <v-icon :color="item.color" small class="share-btn">
         {{ item.icon }}
       </v-icon>
     </v-btn>
 
-    <v-btn @click.stop="copyNewsUrl()" icon title="ニュースリンクをコピー">
+    <v-btn icon title="ニュースリンクをコピー" @click.stop="copyNewsUrl()">
       <v-icon small>mdi-link</v-icon>
     </v-btn>
   </div>
@@ -24,13 +24,13 @@ export default {
     newsTitle: {
       type: String,
       default: "",
-      required: true
+      required: true,
     },
     newsUrl: {
       type: String,
       default: "",
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
     itemList: [
@@ -38,22 +38,22 @@ export default {
         type: "twitter",
         icon: "mdi-twitter",
         color: "#1da1f2",
-        title: "Twitterでシェア"
+        title: "Twitterでシェア",
       },
       {
         type: "facebook",
         icon: "mdi-facebook",
         color: "#3B5998",
-        title: "Facebookでシェア"
+        title: "Facebookでシェア",
       },
       { type: "hatebu", icon: "B!", color: "#008fde", title: "はてブに追加" },
       {
         type: "pocket",
         icon: "mdi-pocket",
         color: "#ee4056",
-        title: "Pocketに追加"
-      }
-    ]
+        title: "Pocketに追加",
+      },
+    ],
   }),
   methods: {
     shareNews(type) {
@@ -88,15 +88,15 @@ export default {
       }
       // URLエンコード
       args = args.map((x) => encodeURI(x));
-      return msg.replace(/\{(\d+)\}/g, function(m, k) {
+      return msg.replace(/\{(\d+)\}/g, function (m, k) {
         return args[k];
       });
     },
     copyNewsUrl() {
       navigator.clipboard.writeText(this.newsUrl);
       this.$store.commit("setSnackBar", true);
-    }
-  }
+    },
+  },
 };
 </script>
 

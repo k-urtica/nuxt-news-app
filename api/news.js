@@ -6,16 +6,16 @@ const app = Express();
 const newsApi = axios.create({
   headers: {
     common: {
-      Authorization: "Bearer " + process.env.API_KEY
-    }
-  }
+      Authorization: "Bearer " + process.env.API_KEY,
+    },
+  },
 });
 
 // 共通ヘッダー
 app.use((req, res, next) => {
   res.set({
     "Cache-Control": "public, max-age=300, s-maxage=7200",
-    "Content-Type": "application/json; charset=utf-8"
+    "Content-Type": "application/json; charset=utf-8",
   });
   next();
 });
@@ -30,7 +30,7 @@ app.get("/api/news", async (req, res, next) => {
     "entertainment",
     "sports",
     "science",
-    "health"
+    "health",
   ];
   const response = [];
   try {
