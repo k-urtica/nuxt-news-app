@@ -77,6 +77,12 @@ export default {
         type: "image/x-icon",
         href: "/favicon.ico",
       },
+      {
+        rel: "stylesheet",
+        type: "text/css",
+        href:
+          "https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css",
+      },
     ],
   },
   router: {
@@ -99,6 +105,9 @@ export default {
   },
   vuetify: {
     customVariables: ["~/assets/css/vuetify/variables.scss"],
+    defaultAssets: {
+      icons: false,
+    },
   },
   serverMiddleware: ["~/api/news.js"],
   build: {
