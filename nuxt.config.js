@@ -98,7 +98,7 @@ export default {
     { src: "~/plugins/aos", mode: "client" },
     "~/plugins/dayjs.js",
   ],
-  buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/dotenv"],
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/dotenv"],
   modules: ["@nuxtjs/axios", "@nuxtjs/pwa"],
   axios: {
     baseURL: process.env.BASE_URL || "http://localhost:3000",
