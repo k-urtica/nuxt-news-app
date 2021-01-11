@@ -66,9 +66,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-}
 .news-title-section {
   background-color: rgba(20, 20, 20, 0.65);
   h2 {

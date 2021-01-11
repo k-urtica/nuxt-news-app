@@ -68,9 +68,5 @@ export default {
   @media screen and (max-width: 600px) {
     font-size: 22px;
   }
-  a {
-    text-decoration: none;
-    color: #607d8b;
-  }
 }
 </style>

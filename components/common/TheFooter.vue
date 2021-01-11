@@ -15,10 +15,3 @@
     </v-container>
   </v-footer>
 </template>
-
-<style lang="scss" scoped>
-a {
-  text-decoration: none;
-  color: #bbdefb;
-}
-</style>

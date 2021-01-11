@@ -42,7 +42,7 @@
                   <v-img
                     :src="getImageUrl(news.urlToImage)"
                     :height="$vuetify.breakpoint.smAndUp ? 150 : 90"
-                    style="border-radius: 6px;"
+                    style="border-radius: 6px"
                   />
                 </v-col>
               </v-row>
@@ -161,8 +161,5 @@ export default {
 .news-text {
   font-size: 12px;
   color: #757575;
-}
-a {
-  text-decoration: none;
 }
 </style>

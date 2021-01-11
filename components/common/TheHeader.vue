@@ -20,9 +20,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-}
 h1 {
   font-size: 28px;
   color: #ff7c00;
