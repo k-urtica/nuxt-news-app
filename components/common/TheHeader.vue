@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="header-bar" flat dense app clipped-left>
+  <v-app-bar color="grey darken-4" app clipped-left hide-on-scroll>
     <v-app-bar-nav-icon dark aria-label="drawer" @click.stop="drawer" />
     <v-toolbar-title>
       <nuxt-link :to="{ name: 'index' }">
@@ -20,16 +20,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-bar {
-  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-    linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(0, 0, 0, 0.25) 200%
-    );
-  background-blend-mode: multiply;
-  opacity: 0.87;
-}
 a {
   text-decoration: none;
 }

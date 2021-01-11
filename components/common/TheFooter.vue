@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="grey darken-4" padless>
+  <v-footer color="grey darken-3" app absolute inset>
     <v-container>
       <v-row>
         <v-col class="py-0" align="center">
