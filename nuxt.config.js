@@ -92,7 +92,7 @@ export default {
   loading: {
     color: "#81D4FA",
   },
-  css: [],
+  css: ["~/assets/css/global.scss"],
   plugins: [
     "@/plugins/axios",
     { src: "~/plugins/aos", mode: "client" },
