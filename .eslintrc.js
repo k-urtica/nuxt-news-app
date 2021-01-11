@@ -12,5 +12,6 @@ module.exports = {
   rules: {
     "vue/max-attributes-per-line": "off",
     "no-console": "off",
+    "vue/comment-directive": "off",
   },
 };
